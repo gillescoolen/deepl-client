@@ -5,7 +5,6 @@ import * as querystring from 'query-string';
 import fetch from "node-fetch";
 
 /**
- * Split a string into substrings using the specified separator and return them as an array.
  * Translate a string into another language using the DeepL API.
  * @property {TranslationParameters} params The parameters you can send to configure DeepL.
  * @returns {TranslationResponse} An array of translated text.

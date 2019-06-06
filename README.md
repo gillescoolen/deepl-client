@@ -11,3 +11,7 @@ const params: TranslationParameters = {
 
 return await translate(params);
 ```
+
+
+## Todo's
+- Change Translation Parameters snake_casing to camelCasing.

@@ -4,7 +4,8 @@
   "description": "A client to interact with the DeepL API.",
   "main": "./dist/index.js",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "lint": "npx eslint --fix src/**/*.ts"
   },
   "author": "Gilles Coolen",
   "keywords": [
@@ -20,6 +21,12 @@
   "devDependencies": {
     "@types/node": "^12.0.4",
     "@types/node-fetch": "^2.3.5",
+    "@typescript-eslint/eslint-plugin": "^1.9.0",
+    "@typescript-eslint/parser": "^1.9.0",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "prettier": "^1.18.0",
     "typescript": "^3.5.1"
   },
   "dependencies": {

@@ -3,6 +3,9 @@
   "version": "1.0.4",
   "description": "A client to interact with the DeepL API.",
   "main": "./dist/index.js",
+  "files": [
+    "/dist"
+  ],
   "scripts": {
     "build": "tsc",
     "lint": "npx eslint --fix src/**/*.ts"

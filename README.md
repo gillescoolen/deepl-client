@@ -43,11 +43,11 @@ The DeepL API has a couple of basic parameters. These are all documented in [`Tr
 ### `text`
 
 Text to be translated. Only UTF8-encoded plain text is supported. The parameter may be specified multiple times and translations are returned in the same order as they are requested. Each of the parameter values may contain multiple sentences. Up to 50 texts can be sent for translation in one request. This parameter is required.
-> `text: 'This is a sentence.`
+> `text: 'This is a sentence.'`
 
 ### `auth_key`
 The authentication key as found in your account settings. This parameter is required
-> `auth_key: 'this-is-your-auth-key`
+> `auth_key: 'this-is-your-auth-key'`
 
 ### `source_lang`
 Language of the text to be translated. All languages are accessible through the [`Language`](https://github.com/GillesWHC/deepl-client/blob/master/src/enums/language.ts) enum. Options currently available:

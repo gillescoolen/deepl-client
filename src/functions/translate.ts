@@ -1,7 +1,7 @@
+import fetch from 'node-fetch';
+import * as querystring from 'query-string';
 import { TranslationParameters } from '../interfaces/translationParameters';
 import { TranslationResponse } from '../interfaces/translationResponse';
-import * as querystring from 'query-string';
-import fetch from 'node-fetch';
 
 /**
  * Translate a string into another language using the DeepL API.
@@ -9,6 +9,6 @@ import fetch from 'node-fetch';
  * @returns {Promise<TranslationResponse>} An array of translated text.
  */
 export async function translate(params: TranslationParameters): Promise<TranslationResponse> {
-  const response = await fetch(`https://api.deepl.com/v2/translate?${querystring.stringify(params)}`)
+  const response = await fetch(`https://api.deepl.com/v2/translate?${querystring.stringify(params)}`);
   return response.json();
 }

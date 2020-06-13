@@ -1,4 +1,4 @@
-import { Language } from "../enums/language";
+import { Language } from '../enums/language';
 /**
  * The parameters you can send to configure DeepL.
  *
@@ -11,11 +11,13 @@ import { Language } from "../enums/language";
 export interface TranslationParameters {
     /**
      * The authentication key as found in your account settings.
+     *
      * @type {string}
      */
     auth_key: string;
     /**
      * The text you want to translate.
+     *
      * @type {string}
      */
     text: string;
@@ -23,8 +25,8 @@ export interface TranslationParameters {
      * Language of the text to be translated.
      *
      * If this parameter is omitted, the API will attempt to detect the language of the text and translate it.
-     * @type {Language}
      *
+     * @type {Language}
      */
     source_lang?: Language;
     /**
@@ -47,6 +49,7 @@ export interface TranslationParameters {
      * For applications that send one sentence per text parameter, it is advisable to set split_sentences=0,
      * in order to prevent the engine from splitting the sentence unintentionally.
      *
+     * @type {string}
      */
     split_sentences?: string;
     /**
@@ -62,28 +65,54 @@ export interface TranslationParameters {
      * Punctuation at the beginning and end of the sentence.
      *
      * Upper/lower case at the beginning of the sentence.
+     *
+     * @type {number}
      */
     preserve_formatting?: number;
+    /**
+     * Sets whether the translated text should lean towards formal or informal language.
+     * This feature currently only works for "DE (German)", "NL (Dutch)" and "PL (Polish)" as target language.
+     * Possible options are:
+     *
+     * "default" (default)
+     *
+     * "more" - for a more formal language
+     *
+     * "less" - for a more informal language
+     *
+     * @type {string}
+     */
+    formality?: 'default' | 'more' | 'less';
     /**
      * Sets which kind of tags should be handled. Options currently available:
      *
      * "xml"
+     *
+     * @type {string}
      */
     tag_handling?: string;
     /**
      * Comma-separated list of XML tags which never split sentences.
+     *
+     * @type {string}
      */
     non_splitting_tags?: string;
     /**
      * Please see the [Handling XML](https://www.deepl.com/docs-api.html?part=xml) section for further details.
+     *
+     * @type {string}
      */
     outline_detection?: string;
     /**
      * Comma-separated list of XML tags which always cause splits.
+     *
+     * @type {string}
      */
     splitting_tags?: string;
     /**
      * Comma-separated list of XML tags that indicate text not to be translated.
+     *
+     * @type {string}
      */
     ignore_tags?: string;
 }

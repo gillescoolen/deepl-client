@@ -35,24 +35,22 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var querystring = require("query-string");
 var node_fetch_1 = require("node-fetch");
+var querystring = require("query-string");
 /**
- * Split a string into substrings using the specified separator and return them as an array.
- * Translate a string into another language using the DeepL Api.
+ * Translate a string into another language using the DeepL API.
  * @property {TranslationParameters} params The parameters you can send to configure DeepL.
- * @returns {TranslationResponse}
- * An array of translated text.
+ * @returns {Promise<TranslationResponse>} An array of translated text.
  */
 function translate(params) {
     return __awaiter(this, void 0, void 0, function () {
+        var response;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, node_fetch_1.default("https://api.deepl.com/v2/translate?" + querystring.stringify(params))
-                        .then(function (res) {
-                        return res.json();
-                    }).catch(function (error) { return console.error(error); })];
-                case 1: return [2 /*return*/, _a.sent()];
+                case 0: return [4 /*yield*/, node_fetch_1.default("https://api.deepl.com/v2/translate?" + querystring.stringify(params))];
+                case 1:
+                    response = _a.sent();
+                    return [2 /*return*/, response.json()];
             }
         });
     });

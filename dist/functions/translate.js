@@ -50,6 +50,8 @@ function translate(params) {
                 case 0: return [4 /*yield*/, node_fetch_1.default("https://api.deepl.com/v2/translate?" + querystring.stringify(params))];
                 case 1:
                     response = _a.sent();
+                    if (!response.ok)
+                        throw 'Something went wrong. Are you using a valid authorization key?';
                     return [2 /*return*/, response.json()];
             }
         });

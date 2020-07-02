@@ -10,5 +10,8 @@ import { TranslationResponse } from '../interfaces/translationResponse';
  */
 export async function translate(params: TranslationParameters): Promise<TranslationResponse> {
   const response = await fetch(`https://api.deepl.com/v2/translate?${querystring.stringify(params)}`);
+
+  if (!response.ok) throw 'Something went wrong. Are you using a valid authorization key?';
+
   return response.json();
 }

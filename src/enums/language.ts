@@ -11,4 +11,6 @@ export enum Language {
   Dutch = 'NL',
   Polish = 'PL',
   Russian = 'RU',
+  Japanese = 'JP',
+  Chinese = 'ZH',
 }

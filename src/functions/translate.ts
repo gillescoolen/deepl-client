@@ -13,7 +13,7 @@ import { UsageResponse } from '../interfaces/usage/usageResponse';
 export async function translate(params: TranslationParameters): Promise<TranslationResponse> {
   const response = await fetch(`https://api.deepl.com/v2/translate?${querystring.stringify(params)}`);
 
-  if (!response.ok) throw 'Something went wrong. Are you using a valid authorization key?';
+  if (!response.ok) throw `Something went wrong. Are you using a valid authorization key? (${await response.json()})`;
 
   return response.json();
 }
@@ -26,7 +26,7 @@ export async function translate(params: TranslationParameters): Promise<Translat
 export async function usage(params: UsageParameters): Promise<UsageResponse> {
   const response = await fetch(`https://api.deepl.com/v2/usage?${querystring.stringify(params)}`);
 
-  if (!response.ok) throw 'Something went wrong. Are you using a valid authorization key?';
+  if (!response.ok) throw 'Something went wrong. Are you using a valid authorization key? (${await response.json()})';
 
   return response.json();
 }

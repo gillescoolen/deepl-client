@@ -35,7 +35,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var node_fetch_1 = require("node-fetch");
+var cross_fetch_1 = require("cross-fetch");
 var querystring = require("query-string");
 /**
  * Translate a string into another language using the DeepL API.
@@ -44,17 +44,80 @@ var querystring = require("query-string");
  */
 function translate(params) {
     return __awaiter(this, void 0, void 0, function () {
-        var response;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, node_fetch_1.default("https://api.deepl.com/v2/translate?" + querystring.stringify(params))];
+        var response, _a;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0: return [4 /*yield*/, cross_fetch_1.default("https://api.deepl.com/v2/translate?" + querystring.stringify(params), {
+                        method: 'POST',
+                    })];
                 case 1:
-                    response = _a.sent();
-                    if (!response.ok)
-                        throw 'Something went wrong. Are you using a valid authorization key?';
-                    return [2 /*return*/, response.json()];
+                    response = _b.sent();
+                    if (!!response.ok) return [3 /*break*/, 3];
+                    _a = "Something went wrong. Are you using a valid authorization key? (";
+                    return [4 /*yield*/, response.json()];
+                case 2: throw _a + (_b.sent()) + ")";
+                case 3: return [2 /*return*/, response.json()];
             }
         });
     });
 }
 exports.translate = translate;
+/**
+ * Translate multiple strings into another language using the DeepL API.
+ * @property {TranslationMultipleParameters} params The parameters you can send to configure DeepL.
+ * @property {string[]} text The text you want to translate.
+ * @returns {Promise<TranslationResponse>} An array of translated text.
+ */
+function translateMultiple(params, text) {
+    return __awaiter(this, void 0, void 0, function () {
+        var query, mappedText, queryWithText, response, _a;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    if (text.length < 1)
+                        throw 'Text array was empty. No text to translate.';
+                    if (text.length > 50)
+                        throw 'Text array contained more than 50 strings. This is a restriction of the DeepL API.';
+                    query = querystring.stringify(params);
+                    mappedText = text.map(function (t) { return "&text=" + t; });
+                    queryWithText = query.concat.apply(query, mappedText);
+                    return [4 /*yield*/, cross_fetch_1.default("https://api.deepl.com/v2/translate?" + queryWithText, {
+                            method: 'POST',
+                        })];
+                case 1:
+                    response = _b.sent();
+                    if (!!response.ok) return [3 /*break*/, 3];
+                    _a = "Something went wrong. Are you using a valid authorization key? (";
+                    return [4 /*yield*/, response.json()];
+                case 2: throw _a + (_b.sent()) + ")";
+                case 3: return [2 /*return*/, response.json()];
+            }
+        });
+    });
+}
+exports.translateMultiple = translateMultiple;
+/**
+ * Get your usage statistics from DeepL.
+ * @property {UsageParameters} params Contains the auth key linked to your account.
+ * @returns {Promise<UsageResponse>} Your usage statistics.
+ */
+function usage(params) {
+    return __awaiter(this, void 0, void 0, function () {
+        var response, _a;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0: return [4 /*yield*/, cross_fetch_1.default("https://api.deepl.com/v2/usage?" + querystring.stringify(params), {
+                        method: 'POST',
+                    })];
+                case 1:
+                    response = _b.sent();
+                    if (!!response.ok) return [3 /*break*/, 3];
+                    _a = "Something went wrong. Are you using a valid authorization key? (";
+                    return [4 /*yield*/, response.json()];
+                case 2: throw _a + (_b.sent()) + ")";
+                case 3: return [2 /*return*/, response.json()];
+            }
+        });
+    });
+}
+exports.usage = usage;

@@ -10,5 +10,7 @@ export declare enum Language {
     Italian = "IT",
     Dutch = "NL",
     Polish = "PL",
-    Russian = "RU"
+    Russian = "RU",
+    Japanese = "JP",
+    Chinese = "ZH"
 }

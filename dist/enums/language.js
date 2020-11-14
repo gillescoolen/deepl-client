@@ -14,4 +14,6 @@ var Language;
     Language["Dutch"] = "NL";
     Language["Polish"] = "PL";
     Language["Russian"] = "RU";
+    Language["Japanese"] = "JP";
+    Language["Chinese"] = "ZH";
 })(Language = exports.Language || (exports.Language = {}));

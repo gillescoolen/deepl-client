@@ -1,4 +1,4 @@
-import fetch from 'cross-fetch';
+import fetch from 'node-fetch';
 import * as querystring from 'query-string';
 import { TranslationParameters } from '../interfaces/translation/translationParameters';
 import { TranslationResponse } from '../interfaces/translation/translationResponse';

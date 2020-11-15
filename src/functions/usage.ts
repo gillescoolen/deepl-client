@@ -1,3 +1,4 @@
+import fetch from 'node-fetch';
 import * as querystring from 'query-string';
 import { UsageParameters } from '../interfaces/usage/usageParameters';
 import { UsageResponse } from '../interfaces/usage/usageResponse';

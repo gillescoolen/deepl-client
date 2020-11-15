@@ -34,7 +34,7 @@
     "typescript": "^3.5.1"
   },
   "dependencies": {
-    "cross-fetch": "^3.0.6",
+    "node-fetch": "^2.6.1",
     "query-string": "^6.6.0"
   }
 }

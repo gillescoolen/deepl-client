@@ -1,3 +1,4 @@
+import fetch from 'node-fetch';
 import * as querystring from 'query-string';
 import { TranslationMultipleParameters } from '../interfaces/translation/translationMultipleParameters';
 import { TranslationResponse } from '../interfaces/translation/translationResponse';

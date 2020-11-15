@@ -1,0 +1,29 @@
+import * as querystring from 'query-string';
+import { TranslationMultipleParameters } from '../interfaces/translation/translationMultipleParameters';
+import { TranslationResponse } from '../interfaces/translation/translationResponse';
+
+/**
+ * Translate multiple strings into another language using the DeepL API.
+ * @property {TranslationMultipleParameters} params The parameters you can send to configure DeepL.
+ * @property {string[]} text The text you want to translate.
+ * @returns {Promise<TranslationResponse>} An array of translated text.
+ */
+export async function translateMultiple(
+  params: TranslationMultipleParameters,
+  text: string[],
+): Promise<TranslationResponse> {
+  if (text.length < 1) throw 'Text array was empty. No text to translate.';
+  if (text.length > 50) throw 'Text array contained more than 50 strings. This is a restriction of the DeepL API.';
+
+  const query = querystring.stringify(params);
+  const mappedText = text.map(t => `&text=${t}`);
+  const queryWithText = query.concat(...mappedText);
+
+  const response = await fetch(`https://api.deepl.com/v2/translate?${queryWithText}`, {
+    method: 'POST',
+  });
+
+  if (!response.ok) throw `Something went wrong. Are you using a valid authorization key? (${await response.json()})`;
+
+  return response.json();
+}

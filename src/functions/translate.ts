@@ -9,8 +9,12 @@ import { TranslationResponse } from '../interfaces/translation/translationRespon
  * @returns {Promise<TranslationResponse>} An array of translated text.
  */
 export async function translate(params: TranslationParameters): Promise<TranslationResponse> {
-  const response = await fetch(`https://api.deepl.com/v2/translate?${querystring.stringify(params)}`, {
+  const body = querystring.stringify(params);
+
+  const response = await fetch(`https://api.deepl.com/v2/translate`, {
     method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body,
   });
 
   if (!response.ok) throw `Something went wrong. Are you using a valid authorization key? (${await response.json()})`;

@@ -1,4 +1,10 @@
 export { translate } from './functions/translate';
+export { translateMultiple } from './functions/translateMultiple';
+export { usage } from './functions/usage';
 export { Language } from './enums/language';
-export { TranslationParameters } from './interfaces/translation/translationParameters';
 export { UsageParameters } from './interfaces/usage/usageParameters';
+export { UsageResponse } from './interfaces/usage/usageResponse';
+export { TranslationParameters } from './interfaces/translation/translationParameters';
+export { TranslationMultipleParameters } from './interfaces/translation/translationMultipleParameters';
+export { TranslationResponse } from './interfaces/translation/translationResponse';
+export { Translation } from './interfaces/translation/translation';

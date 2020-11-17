@@ -19,7 +19,7 @@ export async function translate(params: TranslationParameters): Promise<Translat
       body,
     });
 
-    if (!response.ok) throw handleError(response.status);
+    if (!response.ok) throw await handleError(response);
 
     return response.json();
   } catch (error) {}

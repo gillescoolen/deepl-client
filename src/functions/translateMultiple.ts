@@ -29,7 +29,7 @@ export async function translateMultiple(
       body,
     });
 
-    if (!response.ok) handleError(response.status);
+    if (!response.ok) throw await handleError(response);
 
     return response.json();
   } catch (error) {}

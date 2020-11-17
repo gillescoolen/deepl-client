@@ -19,7 +19,7 @@ export async function usage(params: UsageParameters): Promise<UsageResponse> {
       body,
     });
 
-    if (!response.ok) throw handleError(response.status);
+    if (!response.ok) throw await handleError(response);
 
     return response.json();
   } catch (error) {}

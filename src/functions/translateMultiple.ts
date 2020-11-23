@@ -2,6 +2,7 @@ import fetch from 'node-fetch';
 import * as querystring from 'query-string';
 import { TranslationMultipleParameters } from '../interfaces/translation/translationMultipleParameters';
 import { TranslationResponse } from '../interfaces/translation/translationResponse';
+import { handleError } from './handleError';
 
 /**
  * Translate multiple strings into another language using the DeepL API.
@@ -16,18 +17,20 @@ export async function translateMultiple(
   if (text.length < 1) throw 'Text array was empty. No text to translate.';
   if (text.length > 50) throw 'Text array contained more than 50 strings. This is a restriction of the DeepL API.';
 
-  const body = querystring.stringify({
-    ...params,
-    text,
-  });
+  try {
+    const body = querystring.stringify({
+      ...params,
+      text,
+    });
 
-  const response = await fetch(`https://api.deepl.com/v2/translate`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body,
-  });
+    const response = await fetch(`https://api.deepl.com/v2/translate`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body,
+    });
 
-  if (!response.ok) throw `Something went wrong. Are you using a valid authorization key? (${await response.json()})`;
+    if (!response.ok) throw await handleError(response);
 
-  return response.json();
+    return response.json();
+  } catch (error) {}
 }

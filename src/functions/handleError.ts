@@ -5,8 +5,13 @@ import { Response } from 'node-fetch';
  * @param response The response from the DeepL API.
  */
 export async function handleError(response: Response): Promise<void> {
-  const json = await response.json();
-  if (json.message) console.error(json.message);
+  
+  // Log error message if `message` exists in non empty json body
+  const hasBody = (await response.text()).length;
+  if (hasBody) {
+    const json = await response.json();
+    if (json.message) console.error(json.message);
+  }
 
   switch (response.status) {
     case 400:

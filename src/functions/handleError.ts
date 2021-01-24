@@ -6,9 +6,9 @@ import { Response } from 'node-fetch';
  */
 export async function handleError(response: Response): Promise<void> {
   
-  // Log error message if `message` exists in non empty json body
-  const hasBody = (await response.text()).length;
-  if (hasBody) {
+  const body = await response.text();
+
+  if (body.length) {
     const json = await response.json();
     if (json.message) console.error(json.message);
   }

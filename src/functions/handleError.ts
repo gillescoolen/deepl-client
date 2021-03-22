@@ -5,7 +5,6 @@ import { Response } from 'node-fetch';
  * @param response The response from the DeepL API.
  */
 export async function handleError(response: Response): Promise<void> {
-  
   const body = await response.text();
 
   if (body.length) {

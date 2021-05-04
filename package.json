@@ -46,12 +46,11 @@
     "query-string": "^6.6.0"
   },
   "jest": {
-    "collectCoverageFrom": [
-      "**/*.(t|j)s"
-    ],
-    "coverageDirectory": "../coverage",
     "testEnvironment": "node",
     "preset": "ts-jest",
+    "testPathIgnorePatterns": [
+      "dist"
+    ],
     "setupFiles": [
       "dotenv/config"
     ]

@@ -1,5 +1,6 @@
 ## DeepL Client
-[![Test](https://github.com/gillescoolen/deepl-client/actions/workflows/test.yml/badge.svg)](https://github.com/gillescoolen/deepl-client/actions/workflows/test.yml)\
+[![Test](https://github.com/gillescoolen/deepl-client/actions/workflows/test.yml/badge.svg)](https://github.com/gillescoolen/deepl-client/actions/workflows/test.yml)
+<a href="https://codeclimate.com/github/gillescoolen/deepl-client/maintainability"><img src="https://api.codeclimate.com/v1/badges/1ec22f4c574f9660bae0/maintainability" /></a>\
 See the [official documentation](https://www.deepl.com/docs-api/translating-text/request/) for the available parameters.
 
 You can make a simple request using the following code.

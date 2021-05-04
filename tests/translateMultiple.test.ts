@@ -8,8 +8,8 @@ const params: TranslationMultipleParameters = {
 
 const text = ['Dit is een test zin.', 'Dit is ook een test zin.'];
 
-describe('translateMultiple should translate a multiple sentences into another language', () => {
-  it('should translate from Dutch to English', async () => {
+describe('should translate a multiple sentences into another language', () => {
+  it('translate from Dutch to English', async () => {
     const response = await translateMultiple(params, text);
 
     expect(response).toBeDefined();
@@ -26,7 +26,7 @@ describe('translateMultiple should translate a multiple sentences into another l
     expect(response.translations[1].text.length).toBeGreaterThan(0);
   });
 
-  it('should translate from Dutch to English', async () => {
+  it('translate from Dutch to English', async () => {
     const response = await translateMultiple({ ...params, target_lang: Language.French }, text);
 
     expect(response).toBeDefined();

@@ -4,8 +4,8 @@ const usageParameters: UsageParameters = {
   auth_key: process.env.KEY,
 };
 
-describe('usage should return usage statistics', () => {
-  it('should return usage statistics', async () => {
+describe('usage should return the usage statistics for the current api key', () => {
+  it('fetches usage statistics', async () => {
     const response = await usage(usageParameters);
 
     expect(response).toBeDefined();

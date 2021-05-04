@@ -1,8 +1,4 @@
-## DeepL Client
-[![Tests](https://github.com/gillescoolen/deepl-client/actions/workflows/test.yml/badge.svg)](https://github.com/gillescoolen/deepl-client/actions/workflows/test.yml)
-[![Linter](https://github.com/gillescoolen/deepl-client/actions/workflows/lint.yml/badge.svg)](https://github.com/gillescoolen/deepl-client/actions/workflows/lint.yml)
-[![Build](https://github.com/gillescoolen/deepl-client/actions/workflows/build.yml/badge.svg)](https://github.com/gillescoolen/deepl-client/actions/workflows/build.yml)
-<a href="https://codeclimate.com/github/gillescoolen/deepl-client/maintainability"><img src="https://api.codeclimate.com/v1/badges/1ec22f4c574f9660bae0/maintainability" /></a>\
+## DeepL Client   [![Tests](https://github.com/gillescoolen/deepl-client/actions/workflows/test.yml/badge.svg)](https://github.com/gillescoolen/deepl-client/actions/workflows/test.yml) [![Linter](https://github.com/gillescoolen/deepl-client/actions/workflows/lint.yml/badge.svg)](https://github.com/gillescoolen/deepl-client/actions/workflows/lint.yml) [![Build](https://github.com/gillescoolen/deepl-client/actions/workflows/build.yml/badge.svg)](https://github.com/gillescoolen/deepl-client/actions/workflows/build.yml) <a href="https://codeclimate.com/github/gillescoolen/deepl-client/maintainability"><img src="https://api.codeclimate.com/v1/badges/1ec22f4c574f9660bae0/maintainability" /></a>
 See the [official documentation](https://www.deepl.com/docs-api/translating-text/request/) for the available parameters.
 
 You can make a simple request using the following code.

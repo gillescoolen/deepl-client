@@ -7,8 +7,8 @@ const params: TranslationParameters = {
   target_lang: Language.English,
 };
 
-describe('translate should translate a single sentence into another language', () => {
-  it('should translate to English', async () => {
+describe('should translate a single sentence into another language', () => {
+  it('translate to English', async () => {
     const response = await translate({ ...params, target_lang: Language.English });
 
     expect(response).toBeDefined();
@@ -21,7 +21,7 @@ describe('translate should translate a single sentence into another language', (
     expect(response.translations[0].text.length).toBeGreaterThan(0);
   });
 
-  it('should translate to French', async () => {
+  it('translate to French', async () => {
     const response = await translate({ ...params, target_lang: Language.French });
 
     expect(response).toBeDefined();
@@ -32,5 +32,21 @@ describe('translate should translate a single sentence into another language', (
     expect(response.translations[0]).toHaveProperty('text');
     expect(response.translations[0].detected_source_language.length).toBeGreaterThan(0);
     expect(response.translations[0].text.length).toBeGreaterThan(0);
+  });
+
+  it('throws when the auth key is not active', async () => {
+    try {
+      await translate({ ...params, auth_key: '00000000-0000-0000-0000-000000000000' });
+    } catch (error) {
+      expect(error).toEqual(new Error('403 - Authorization failed. Please supply a valid auth_key parameter.'));
+    }
+  });
+
+  it('throws when the auth key is invalid', async () => {
+    try {
+      await translate({ ...params, auth_key: 'invalid' });
+    } catch (error) {
+      expect(error).toEqual(new Error('Invalid API key "invalid".'));
+    }
   });
 });

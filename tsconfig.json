@@ -6,7 +6,7 @@
     "moduleResolution": "node",
     "noImplicitAny": true,
     "outDir": "dist",
-    "rootDir": "./src",
+    "rootDir": ".",
     "lib": [
       "es6",
       "dom"

@@ -2,6 +2,7 @@ import fetch from 'node-fetch';
 import * as querystring from 'query-string';
 import { UsageParameters } from '../interfaces/usage/usageParameters';
 import { UsageResponse } from '../interfaces/usage/usageResponse';
+import { getDomain } from './getDomain';
 import { handleError } from './handleError';
 
 /**
@@ -13,7 +14,7 @@ export async function usage(params: UsageParameters): Promise<UsageResponse> {
   try {
     const body = querystring.stringify(params);
 
-    const response = await fetch(`https://api.deepl.com/v2/usage?${querystring.stringify(params)}`, {
+    const response = await fetch(`${getDomain(params)}/usage?${querystring.stringify(params)}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body,

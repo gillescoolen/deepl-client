@@ -2,6 +2,7 @@ import fetch from 'node-fetch';
 import * as querystring from 'query-string';
 import { TranslationParameters } from '../interfaces/translation/translationParameters';
 import { TranslationResponse } from '../interfaces/translation/translationResponse';
+import { getDomain } from './getDomain';
 import { handleError } from './handleError';
 
 /**
@@ -13,7 +14,7 @@ export async function translate(params: TranslationParameters): Promise<Translat
   try {
     const body = querystring.stringify(params);
 
-    const response = await fetch(`https://api.deepl.com/v2/translate`, {
+    const response = await fetch(`${getDomain(params)}/translate`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body,
@@ -22,5 +23,7 @@ export async function translate(params: TranslationParameters): Promise<Translat
     if (!response.ok) throw await handleError(response);
 
     return response.json();
-  } catch (error) {}
+  } catch (error) {
+    console.error(error);
+  }
 }

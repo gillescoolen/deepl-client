@@ -2,6 +2,7 @@ import fetch from 'node-fetch';
 import * as querystring from 'query-string';
 import { TranslationMultipleParameters } from '../interfaces/translation/translationMultipleParameters';
 import { TranslationResponse } from '../interfaces/translation/translationResponse';
+import { getDomain } from './getDomain';
 import { handleError } from './handleError';
 
 /**
@@ -23,7 +24,7 @@ export async function translateMultiple(
       text,
     });
 
-    const response = await fetch(`https://api.deepl.com/v2/translate`, {
+    const response = await fetch(`${getDomain(params)}/translate`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body,

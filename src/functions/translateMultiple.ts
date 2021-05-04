@@ -15,8 +15,9 @@ export async function translateMultiple(
   params: TranslationMultipleParameters,
   text: string[],
 ): Promise<TranslationResponse> {
-  if (text.length < 1) throw 'Text array was empty. No text to translate.';
-  if (text.length > 50) throw 'Text array contained more than 50 strings. This is a restriction of the DeepL API.';
+  if (text.length < 1) throw new Error('Text array was empty. No text to translate.');
+  if (text.length > 50)
+    throw new Error('Text array contained more than 50 strings. This is a restriction of the DeepL API.');
 
   const body = querystring.stringify({
     ...params,

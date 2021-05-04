@@ -42,4 +42,38 @@ describe('should translate a multiple sentences into another language', () => {
     expect(response.translations[1].detected_source_language.length).toBeGreaterThan(0);
     expect(response.translations[1].text.length).toBeGreaterThan(0);
   });
+
+  it('throws when the auth key is not active', async () => {
+    try {
+      await translateMultiple({ ...params, auth_key: '00000000-0000-0000-0000-000000000000' }, text);
+    } catch (error) {
+      expect(error).toEqual(new Error('403 - Authorization failed. Please supply a valid auth_key parameter.'));
+    }
+  });
+
+  it('throws when the auth key is invalid', async () => {
+    try {
+      await translateMultiple({ ...params, auth_key: 'invalid' }, text);
+    } catch (error) {
+      expect(error).toEqual(new Error('Invalid API key "invalid".'));
+    }
+  });
+
+  it('throws when the text array is empty', async () => {
+    try {
+      await translateMultiple(params, []);
+    } catch (error) {
+      expect(error).toEqual(new Error('Text array was empty. No text to translate.'));
+    }
+  });
+
+  it('throws when the text array has more than 50 strings', async () => {
+    try {
+      await translateMultiple(params, new Array(51));
+    } catch (error) {
+      expect(error).toEqual(
+        new Error('Text array contained more than 50 strings. This is a restriction of the DeepL API.'),
+      );
+    }
+  });
 });

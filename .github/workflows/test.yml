@@ -5,8 +5,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  run-linters:
-    name: Run tests
+  test:
+    name: test
     runs-on: ubuntu-latest
 
     steps:

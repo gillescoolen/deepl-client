@@ -1,4 +1,5 @@
 ## DeepL Client
+[![Test](https://github.com/gillescoolen/deepl-client/actions/workflows/test.yml/badge.svg)](https://github.com/gillescoolen/deepl-client/actions/workflows/test.yml)\
 See the [official documentation](https://www.deepl.com/docs-api/translating-text/request/) for the available parameters.
 
 You can make a simple request using the following code.

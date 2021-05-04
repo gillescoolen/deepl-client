@@ -24,3 +24,5 @@ jobs:
 
       - name: Run tests
         run: npm t
+        with: 
+          KEY: ${{ secrets.KEY }}

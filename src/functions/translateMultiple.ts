@@ -18,20 +18,18 @@ export async function translateMultiple(
   if (text.length < 1) throw 'Text array was empty. No text to translate.';
   if (text.length > 50) throw 'Text array contained more than 50 strings. This is a restriction of the DeepL API.';
 
-  try {
-    const body = querystring.stringify({
-      ...params,
-      text,
-    });
+  const body = querystring.stringify({
+    ...params,
+    text,
+  });
 
-    const response = await fetch(`${getDomain(params)}/translate`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body,
-    });
+  const response = await fetch(`${getDomain(params)}/translate`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body,
+  });
 
-    if (!response.ok) throw await handleError(response);
+  if (!response.ok) throw await handleError(response);
 
-    return response.json();
-  } catch (error) {}
+  return response.json();
 }

@@ -11,19 +11,15 @@ import { handleError } from './handleError';
  * @returns {Promise<TranslationResponse>} An array of translated text.
  */
 export async function translate(params: TranslationParameters): Promise<TranslationResponse> {
-  try {
-    const body = querystring.stringify(params);
+  const body = querystring.stringify(params);
 
-    const response = await fetch(`${getDomain(params)}/translate`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body,
-    });
+  const response = await fetch(`${getDomain(params)}/translate`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body,
+  });
 
-    if (!response.ok) throw await handleError(response);
+  if (!response.ok) throw await handleError(response);
 
-    return response.json();
-  } catch (error) {
-    console.error(error);
-  }
+  return response.json();
 }

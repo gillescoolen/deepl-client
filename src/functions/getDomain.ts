@@ -4,11 +4,9 @@
  * @returns the free or paid host url.
  */
 export function getDomain(params: { auth_key: string }): string {
-  try {
-    return params.auth_key && params.auth_key.match(/:fx/g)
-      ? 'https://api-free.deepl.com/v2'
-      : 'https://api.deepl.com/v2';
-  } catch (error) {
-    throw new Error(`Invalid API key "${params.auth_key}".`);
-  }
+  if (params.auth_key && params.auth_key.length < 36) throw new Error(`Invalid API key "${params.auth_key}".`);
+
+  return params.auth_key && params.auth_key.match(/:fx/g)
+    ? 'https://api-free.deepl.com/v2'
+    : 'https://api.deepl.com/v2';
 }

@@ -11,17 +11,15 @@ import { handleError } from './handleError';
  * @returns {Promise<UsageResponse>} Your usage statistics.
  */
 export async function usage(params: UsageParameters): Promise<UsageResponse> {
-  try {
-    const body = querystring.stringify(params);
+  const body = querystring.stringify(params);
 
-    const response = await fetch(`${getDomain(params)}/usage?${querystring.stringify(params)}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body,
-    });
+  const response = await fetch(`${getDomain(params)}/usage?${querystring.stringify(params)}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body,
+  });
 
-    if (!response.ok) throw await handleError(response);
+  if (!response.ok) throw await handleError(response);
 
-    return response.json();
-  } catch (error) {}
+  return response.json();
 }

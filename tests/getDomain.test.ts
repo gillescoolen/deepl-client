@@ -1,7 +1,7 @@
 import { getDomain } from '../src/functions/getDomain';
 
 const params = {
-  auth_key: process.env.KEY,
+  auth_key: process.env.API_KEY,
 };
 
 describe('should return a different domain for free / paid keys', () => {

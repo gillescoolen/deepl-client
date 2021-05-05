@@ -85,4 +85,5 @@ Missing something? Don't hesitate to open an issue or pull request!
 
 Install the dependencies using `npm ci`.\
 Run the linter with `npm run lint`.\
+Copy the `env.example` file and add a valid API key.\
 Run the tests with `npm t`.

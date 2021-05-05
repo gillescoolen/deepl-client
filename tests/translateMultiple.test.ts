@@ -1,7 +1,7 @@
 import { Language, translateMultiple, TranslationMultipleParameters } from '../src';
 
 const params: TranslationMultipleParameters = {
-  auth_key: process.env.KEY,
+  auth_key: process.env.API_KEY,
   source_lang: Language.Dutch,
   target_lang: Language.English,
 };

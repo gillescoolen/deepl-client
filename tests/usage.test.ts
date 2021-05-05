@@ -1,7 +1,7 @@
 import { usage, UsageParameters } from '../src';
 
 const usageParameters: UsageParameters = {
-  auth_key: process.env.KEY,
+  auth_key: process.env.API_KEY,
 };
 
 describe('usage should return the usage statistics for the current api key', () => {

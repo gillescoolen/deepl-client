@@ -1,4 +1,5 @@
 [![Tests](https://github.com/gillescoolen/deepl-client/actions/workflows/test.yml/badge.svg)](https://github.com/gillescoolen/deepl-client/actions/workflows/test.yml) [![Linter](https://github.com/gillescoolen/deepl-client/actions/workflows/lint.yml/badge.svg)](https://github.com/gillescoolen/deepl-client/actions/workflows/lint.yml) [![Build](https://github.com/gillescoolen/deepl-client/actions/workflows/build.yml/badge.svg)](https://github.com/gillescoolen/deepl-client/actions/workflows/build.yml) <a href="https://codeclimate.com/github/gillescoolen/deepl-client/maintainability"><img src="https://api.codeclimate.com/v1/badges/1ec22f4c574f9660bae0/maintainability" /></a>
+<a href="https://codeclimate.com/github/gillescoolen/deepl-client/test_coverage"><img src="https://api.codeclimate.com/v1/badges/1ec22f4c574f9660bae0/test_coverage" /></a>
 ## DeepL Client
 See the [official documentation](https://www.deepl.com/docs-api/translating-text/request/) for the available parameters.
 
@@ -84,4 +85,5 @@ Missing something? Don't hesitate to open an issue or pull request!
 
 Install the dependencies using `npm ci`.\
 Run the linter with `npm run lint`.\
+Copy the `env.example` file and add a valid API key.\
 Run the tests with `npm t`.

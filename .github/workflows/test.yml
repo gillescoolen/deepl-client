@@ -5,8 +5,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  test:
-    name: test
+  coverage:
+    name: coverage
     runs-on: ubuntu-latest
 
     steps:
@@ -18,10 +18,10 @@ jobs:
         with:
           node-version: 15
 
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run tests
-        run: npm t
+      - run: npm ci
+      - uses: paambaati/codeclimate-action@v2.7.2
         env:
-          KEY: ${{ secrets.KEY }}
+          API_KEY: ${{ secrets.API_KEY }}
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        with:
+          coverageCommand: npm run test:cov

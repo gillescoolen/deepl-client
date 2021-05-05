@@ -1,14 +1,16 @@
 {
   "name": "deepl-client",
-  "version": "1.0.21",
+  "version": "1.0.22-beta.1",
   "description": "A client to interact with the DeepL API.",
   "main": "./dist/index.js",
   "files": [
     "/dist"
   ],
   "scripts": {
-    "build": "tsc",
-    "lint": "npx eslint --fix src/**/*.ts"
+    "build": "tsc -p tsconfig.build.json",
+    "lint": "eslint --fix src/**/*.ts",
+    "test": "jest --force-exit --detectOpenHandles --passWithNoTests",
+    "test:cov": "jest --coverage"
   },
   "author": "Gilles Coolen",
   "keywords": [
@@ -18,22 +20,38 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gilleswhc/deepl-client.git"
+    "url": "git+https://github.com/gillescoolen/deepl-client.git"
   },
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^12.0.4",
-    "@types/node-fetch": "^2.3.5",
-    "@typescript-eslint/eslint-plugin": "^1.9.0",
-    "@typescript-eslint/parser": "^1.9.0",
-    "eslint": "^5.16.0",
-    "eslint-config-prettier": "^4.3.0",
-    "eslint-plugin-prettier": "^3.1.0",
-    "prettier": "^1.18.0",
-    "typescript": "^3.5.1"
+    "@types/dotenv": "^8.2.0",
+    "@types/jest": "^26.0.23",
+    "@types/node": "^15.0.1",
+    "@types/node-fetch": "^2.5.10",
+    "@typescript-eslint/eslint-plugin": "^4.22.1",
+    "@typescript-eslint/parser": "^4.22.1",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.25.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "jest": "^26.6.3",
+    "prettier": "^2.2.1",
+    "ts-jest": "^26.5.5",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4"
   },
   "dependencies": {
     "node-fetch": "^2.6.1",
-    "query-string": "^6.6.0"
+    "query-string": "^7.0.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "preset": "ts-jest",
+    "testPathIgnorePatterns": [
+      "dist"
+    ],
+    "setupFiles": [
+      "dotenv/config"
+    ]
   }
 }

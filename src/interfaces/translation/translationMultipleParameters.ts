@@ -46,7 +46,7 @@ export interface TranslationMultipleParameters {
    * in order to prevent the engine from splitting the sentence unintentionally.
    * @type {string}
    */
-  split_sentences?: string;
+  split_sentences?: '0' | '1' | 'nonewlines';
 
   /**
    * Sets whether the translation engine should respect the original formatting, even if it would usually correct some aspects.
@@ -63,7 +63,7 @@ export interface TranslationMultipleParameters {
    * Upper/lower case at the beginning of the sentence.
    * @type {number}
    */
-  preserve_formatting?: number;
+  preserve_formatting?: 0 | 1;
 
   /**
    * Sets whether the translated text should lean towards formal or informal language.
@@ -85,7 +85,7 @@ export interface TranslationMultipleParameters {
    * "xml"
    * @type {string}
    */
-  tag_handling?: string;
+  tag_handling?: 'xml';
 
   /**
    * Comma-separated list of XML tags which never split sentences.

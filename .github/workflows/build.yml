@@ -1,0 +1,25 @@
+name: Build
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 15
+
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: tsc
+        uses: icrawl/action-tsc@v1

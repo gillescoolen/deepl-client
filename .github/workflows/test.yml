@@ -25,3 +25,23 @@ jobs:
         run: npm t
         env:
           KEY: ${{ secrets.KEY }}
+  coverage:
+    needs: [ test ]
+    name: coverage
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 15
+          
+      - run: npm ci
+      - uses: paambaati/codeclimate-action@v2.7.2
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        with:
+          coverageCommand: npm run test:cov

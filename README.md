@@ -1,9 +1,9 @@
 [![Tests](https://github.com/gillescoolen/deepl-client/actions/workflows/test.yml/badge.svg)](https://github.com/gillescoolen/deepl-client/actions/workflows/test.yml) [![Linter](https://github.com/gillescoolen/deepl-client/actions/workflows/lint.yml/badge.svg)](https://github.com/gillescoolen/deepl-client/actions/workflows/lint.yml) [![Build](https://github.com/gillescoolen/deepl-client/actions/workflows/build.yml/badge.svg)](https://github.com/gillescoolen/deepl-client/actions/workflows/build.yml) <a href="https://codeclimate.com/github/gillescoolen/deepl-client/maintainability"><img src="https://api.codeclimate.com/v1/badges/1ec22f4c574f9660bae0/maintainability" /></a>
 <a href="https://codeclimate.com/github/gillescoolen/deepl-client/test_coverage"><img src="https://api.codeclimate.com/v1/badges/1ec22f4c574f9660bae0/test_coverage" /></a>
 ## DeepL Client
-See the [official documentation](https://www.deepl.com/docs-api/translating-text/request/) for the available parameters.
+See the [official documentation](https://www.deepl.com/docs-api/translating-text/request/) for all available parameters.
 
-You can make a simple request using the following code.
+You can make a simple request using the following code:
 
 ```typescript
 const params: TranslationParameters = {
@@ -15,7 +15,7 @@ const params: TranslationParameters = {
 await translate(params);
 ```
 
-Which will return a `TranslationResponse`, containing an array with the translation, and the detected source language.
+Which will return a `TranslationResponse`, containing an array with the translation and the detected source language:
 
 ```json
 {
@@ -29,7 +29,7 @@ Which will return a `TranslationResponse`, containing an array with the translat
 ```
 
 ### Translate Multiple
-To translate an array of text, you can use the `translateMultiple` function.
+To translate an array of text, you can use the `translateMultiple` function:
 
 ```typescript
 const params: TranslationMultipleParameters = {
@@ -42,7 +42,7 @@ const text = ['This is a sentence.', 'This is another sentence.'].
 await translateMultiple(params, text);
 ```
 
-Which will return the same `TranslationResponse`, except with more entries.
+Which will return the same `TranslationResponse`, except with more entries:
 
 ```json
 {
@@ -60,7 +60,7 @@ Which will return the same `TranslationResponse`, except with more entries.
 ```
 
 ### Usage
-To see the usage statistics linked to your authorization key, you can use the `usage` function.
+To see the usage statistics linked to your authorization key, you can use the `usage` function:
 
 ```typescript
 const params: UsageParameters = {
@@ -70,16 +70,16 @@ const params: UsageParameters = {
 await usage(params);
 ```
 
-Which will return a `UsageResponse`, containing the used character count and the set characterl limit.
+Which will return a `UsageResponse`, containing the used character count and the set character limit:
 
 ```json
 {
-  "character_count":398,
-  "character_limit":5000000
+  "character_count": 398,
+  "character_limit": 5000000
 }
 ```
 
-Missing something? Don't hesitate to open an issue or pull request!
+Missing something? Do not hesitate to open an issue or pull request!
 
 ### Contributing
 

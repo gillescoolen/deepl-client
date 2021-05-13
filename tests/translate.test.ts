@@ -1,7 +1,7 @@
 import { Language, translate, TranslationParameters } from '../src';
 
 const params: TranslationParameters = {
-  auth_key: process.env.KEY,
+  auth_key: process.env.API_KEY,
   text: 'Dit is een test zin.',
   source_lang: Language.Dutch,
   target_lang: Language.English,

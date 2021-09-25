@@ -8,7 +8,7 @@ const params: TranslationMultipleParameters = {
 
 const text = ['Dit is een test zin.', 'Dit is ook een test zin.'];
 
-describe('should translate a multiple sentences into another language', () => {
+describe('should translate multiple sentences into another language', () => {
   it('translate from Dutch to English', async () => {
     const response = await translateMultiple(params, text);
 

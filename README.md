@@ -1,5 +1,10 @@
 [![Tests](https://github.com/gillescoolen/deepl-client/actions/workflows/test.yml/badge.svg)](https://github.com/gillescoolen/deepl-client/actions/workflows/test.yml) [![Linter](https://github.com/gillescoolen/deepl-client/actions/workflows/lint.yml/badge.svg)](https://github.com/gillescoolen/deepl-client/actions/workflows/lint.yml) [![Build](https://github.com/gillescoolen/deepl-client/actions/workflows/build.yml/badge.svg)](https://github.com/gillescoolen/deepl-client/actions/workflows/build.yml) <a href="https://codeclimate.com/github/gillescoolen/deepl-client/maintainability"><img src="https://api.codeclimate.com/v1/badges/1ec22f4c574f9660bae0/maintainability" /></a>
 <a href="https://codeclimate.com/github/gillescoolen/deepl-client/test_coverage"><img src="https://api.codeclimate.com/v1/badges/1ec22f4c574f9660bae0/test_coverage" /></a>
+
+# Archived due to the DeepL team releasing an official Node client.
+See https://github.com/DeepLcom/deepl-node for the official client.
+Thanks to everyone contributing over the years. Bye! 👋
+
 ## DeepL Client
 See the [official documentation](https://www.deepl.com/docs-api/translating-text/request/) for the available parameters.
 
